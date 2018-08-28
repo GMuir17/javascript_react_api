@@ -6,11 +6,12 @@ const PokemonDetail = (props) => {
   return (
     <div>
       <h3>
-        {props.selectedPokemon.name}
+        Species: {props.selectedPokemon.name}
       </h3>
       <h4>
-        {props.selectedPokemon.weight}
+        Weight: {props.selectedPokemon.weight}
       </h4>
+      <img src={props.selectedPokemon.sprites.front_default} alt="A pokemon sprite" />
     </div>
   )
 }
