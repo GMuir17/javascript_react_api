@@ -28,7 +28,17 @@ class PokemonContainer extends React.Component {
 
   handlePokemonSelected(index){
     const selectedPokemon = this.state.pokemon[index];
-    this.setState({ selectedPokemon: selectedPokemon })
+    const pokemonUrl = selectedPokemon.url
+    fetch(pokemonUrl)
+      .then((res) => {
+        return res.json();
+      })
+      .then((pokemonDetails) => {
+        this.setState({ selectedPokemon: pokemonDetails });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   render() {
